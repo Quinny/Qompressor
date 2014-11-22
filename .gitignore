@@ -1,0 +1,5 @@
+qpress
+*.out
+*.dSYM/
+test/
+*.DS_STORE
