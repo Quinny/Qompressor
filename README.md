@@ -4,7 +4,7 @@ A little text compression project that I am working on.
 
 In its current state it doesn't really compress anything (it actually makes files bigger) but its kind of a cool encoder.  I used Huffmans algorithm for encoding, but slightly modified it to work with an n-ary tree as apposed to always using a binary tree.  I have a few ideas for making it better and hopefully it will be able to actually compress things soon.
 
-Detailed explanation and thought process will be being posted on [my website](http://quinnftw.com) soon.
+For a more detailed explanation and thought process see [here](http://quinnftw.com/qompressor/) .
 
 Usage
 =====
