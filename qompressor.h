@@ -2,10 +2,7 @@
 #define QOMPRESSOR_H
 
 #include <unordered_map>
-#include <string>
-#include <vector>
 #include <fstream>
-#include <queue>
 
 namespace qompressor{
 

@@ -1,6 +1,9 @@
-#include "qompressor.h"
 #include <iostream>
+#include <string>
+#include "qompressor.h"
 #include "HuffmanTree.h"
+#include <queue>
+#include <vector>
 
 namespace qompressor{
 

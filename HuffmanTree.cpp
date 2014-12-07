@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+#include <queue>
 
 namespace qompressor{
 
