@@ -6,7 +6,7 @@
 
 namespace qompressor{
 
-int HuffmanTree::opt_size(freq_table const& f){
+int HuffmanTree::opt_size(freq_table const& f) const {
 	int n = f.size();
 	for(int i = 36; i >= 2; i--){
 		if(n % (i - 1) == 0) return i;
@@ -14,13 +14,13 @@ int HuffmanTree::opt_size(freq_table const& f){
 	return 2; 
 }
 
-trans_table HuffmanTree::translation_table(){
+trans_table HuffmanTree::translation_table() const {
 	trans_table t;
 	fill_table(root_, "", t);
 	return t;
 }
 
-void HuffmanTree::fill_table(HuffmanNode root, std::string seq, trans_table& t){
+void HuffmanTree::fill_table(HuffmanNode root, std::string seq, trans_table& t) const {
 	if(root.is_leaf())
 		t[root.word_] = seq;
 
@@ -28,7 +28,7 @@ void HuffmanTree::fill_table(HuffmanNode root, std::string seq, trans_table& t){
 		fill_table(root.children_[i], seq + get_char(i), t);
 }
 
-freq_table HuffmanTree::frequency_table(std::string const& filename){
+freq_table HuffmanTree::frequency_table(std::string const& filename) const {
 	std::ifstream f(filename);
 	if(!f){
 		std::cout << "Error reading file" << std::endl;
@@ -47,14 +47,14 @@ freq_table HuffmanTree::frequency_table(std::string const& filename){
 	return t;
 }
 
-std::string HuffmanTree::get_char(int n){
+std::string HuffmanTree::get_char(int n) const {
 	if(n <= 9) return std::to_string(n);
 	char c = 'a' - (10 - n);
 	std::string s;
 	return s + c;
 }
 
-HuffmanNode HuffmanTree::make_tree(freq_table& freq){
+HuffmanNode HuffmanTree::make_tree(freq_table& freq) const {
 	std::priority_queue<HuffmanNode, std::vector<HuffmanNode>, CompareNode> trees;
 	while(opt_size(freq) < 20) // Force a tree of size 20
 		freq[random_string(16)] = 0;
@@ -74,7 +74,7 @@ HuffmanNode HuffmanTree::make_tree(freq_table& freq){
 	return trees.top();
 }
 
-std::string HuffmanTree::random_string(int n){
+std::string HuffmanTree::random_string(int n) const {
 	std::string alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
 	std::string r;
 	for(int i = 0; i < n; i++)

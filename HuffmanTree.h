@@ -16,7 +16,7 @@ struct HuffmanNode{
 		for(auto i:v)
 			freq_ += i.freq_;
 	}
-	bool is_leaf(){ return children_.empty(); }
+	bool is_leaf() const { return children_.empty(); }
 	void add_child(HuffmanNode n){ children_.push_back(n); }
 };
 
@@ -34,17 +34,17 @@ class HuffmanTree{
 			HuffmanNode n = t.make_tree(f);
 			return HuffmanTree(n);
 		}
-		trans_table translation_table();
+		trans_table translation_table() const;
 		
 
 	private:
-		void fill_table(HuffmanNode root, std::string seq, trans_table& t);
+		void fill_table(HuffmanNode root, std::string seq, trans_table& t) const;
 		HuffmanTree(HuffmanNode n): root_(n) {};
-		freq_table frequency_table(std::string const& filename);
-		int opt_size(freq_table const& t);
-		HuffmanNode make_tree(freq_table& t);
-		std::string get_char(int n);
-		std::string random_string(int n);
+		freq_table frequency_table(std::string const& filename) const;
+		int opt_size(freq_table const& t) const;
+		HuffmanNode make_tree(freq_table& t) const;
+		std::string get_char(int n) const;
+		std::string random_string(int n) const;
 
 };
 
